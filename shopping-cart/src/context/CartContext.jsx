@@ -1,6 +1,6 @@
 import { createContext, useContext, useReducer } from "react";
-import products from "../data/product";
-import CartReducer from "../reducer/CartReducer";
+import products from "../data/product.js";
+import CartReducer from "../reducer/CartReducer.js";
 // สร้าง Context เปล่าๆ
 const CartContext = createContext()
 const initState = {
@@ -10,7 +10,7 @@ const initState = {
 };
 
 // สร้าง Provider ไว้กระจายข้อมูล
-export const Provider = ({ children }) => {
+export const CartProvider = ({ children }) => {
     const [state, dispatch] = useReducer(CartReducer, initState)
     return (
         <CartContext.Provider value={{ ...state }}>

@@ -1,5 +1,13 @@
 header {
     display: flex;
     justify-content: space-between;
-    margin-block: 50px;
+    font-size: 23px;
+    border-bottom: 1px solid #333;
+    align-items: center;
+    height: 60px;
+}
+
+span {
+    margin-inline: 50px;
+    font-weight: bold;
 }

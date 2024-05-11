@@ -4,7 +4,8 @@ header {
     font-size: 23px;
     border-bottom: 1px solid #333;
     align-items: center;
-    height: 60px;
+    height: 80px;
+    margin-bottom: 20px;
 }
 
 span {

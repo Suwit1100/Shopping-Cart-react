@@ -1,5 +1,5 @@
 import React from 'react'
-import Image from "../assets/product1.png"
+import ImageImport from "../../public/assets/product1.png"
 function Item(props) {
     const { id, name, price, image, quantity } = props;
     return (

@@ -8,12 +8,15 @@ const initState = {
     amouth: 0,
     total: 0
 };
+function formatMoney(money) {
+    return money.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+}
 
 // สร้าง Provider ไว้กระจายข้อมูล
 export const CartProvider = ({ children }) => {
     const [state, dispatch] = useReducer(CartReducer, initState)
     return (
-        <CartContext.Provider value={{ ...state }}>
+        <CartContext.Provider value={{ ...state, formatMoney }}>
             {children}
         </CartContext.Provider>
     )

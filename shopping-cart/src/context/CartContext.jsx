@@ -5,7 +5,7 @@ import CartReducer from "../reducer/CartReducer.js";
 const CartContext = createContext()
 const initState = {
     products: products,
-    amouth: 0,
+    amount: 0,
     total: 0
 };
 function formatMoney(money) {

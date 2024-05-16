@@ -17,7 +17,6 @@ export const CartProvider = ({ children }) => {
     const [state, dispatch] = useReducer(CartReducer, initState)
     useEffect(() => {
         dispatch({ type: "CALTOTAL" })
-        console.log(result);
     }, [state.products])
     return (
         <CartContext.Provider value={{ ...state, formatMoney }}>

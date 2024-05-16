@@ -1,3 +1,5 @@
+import products from "../data/product";
+
 // สร้าง Reducer
 const CartReducer = (state, action) => {
     if (action.type === "CALTOTAL") {
@@ -18,6 +20,14 @@ const CartReducer = (state, action) => {
             total
         };
     }
-    return state;
+    if (action.type === "REMOVEITEM") {
+        const id = action.paylode;
+        const result = state.products.filter((e) => e.id !== id);
+        return {
+            ...state,
+            products: result
+        };
+    }
+    return state
 }
 export default CartReducer;

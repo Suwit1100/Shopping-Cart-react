@@ -18,8 +18,13 @@ export const CartProvider = ({ children }) => {
     useEffect(() => {
         dispatch({ type: "CALTOTAL" })
     }, [state.products])
+
+    function removeItem(id) {
+        console.log(id);
+        dispatch({ type: "REMOVEITEM", paylode: id })
+    }
     return (
-        <CartContext.Provider value={{ ...state, formatMoney }}>
+        <CartContext.Provider value={{ ...state, formatMoney, removeItem }}>
             {children}
         </CartContext.Provider>
     )

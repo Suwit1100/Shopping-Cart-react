@@ -14,7 +14,7 @@ function Item(props) {
                 </div>
                 <div className="quantity">
                     <button>+</button>
-                    <input type="text" value={quantity} />
+                    <input type="text" value={quantity} name='quantity' readOnly />
                     <button>-</button>
                 </div>
                 <div className="total-price">{formatMoney(quantity * price)}</div>

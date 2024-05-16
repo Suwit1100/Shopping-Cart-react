@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 import products from "../data/product.js";
 import CartReducer from "../reducer/CartReducer.js";
 // สร้าง Context เปล่าๆ
@@ -15,6 +15,10 @@ function formatMoney(money) {
 // สร้าง Provider ไว้กระจายข้อมูล
 export const CartProvider = ({ children }) => {
     const [state, dispatch] = useReducer(CartReducer, initState)
+    useEffect(() => {
+        dispatch({ type: "CALTOTAL" })
+        console.log(result);
+    }, [state.products])
     return (
         <CartContext.Provider value={{ ...state, formatMoney }}>
             {children}

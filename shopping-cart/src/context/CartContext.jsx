@@ -8,9 +8,6 @@ const initState = {
     amount: 0,
     total: 0
 };
-function formatMoney(money) {
-    return money.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-}
 
 // สร้าง Provider ไว้กระจายข้อมูล
 export const CartProvider = ({ children }) => {
@@ -19,12 +16,26 @@ export const CartProvider = ({ children }) => {
         dispatch({ type: "CALTOTAL" })
     }, [state.products])
 
+    function formatMoney(money) {
+        return money.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    }
+
     function removeItem(id) {
         console.log(id);
         dispatch({ type: "REMOVEITEM", paylode: id })
     }
+
+    function increQuantity(id) {
+        console.log(id);
+        dispatch({ type: "INCREQUANTITY", paylode: id })
+    }
+
+    function decreQuantity(id) {
+        console.log(id);
+        dispatch({ type: "DECREQUANTITY", paylode: id })
+    }
     return (
-        <CartContext.Provider value={{ ...state, formatMoney, removeItem }}>
+        <CartContext.Provider value={{ ...state, formatMoney, removeItem, increQuantity, decreQuantity }}>
             {children}
         </CartContext.Provider>
     )

@@ -28,6 +28,38 @@ const CartReducer = (state, action) => {
             products: result
         };
     }
+    if (action.type === "INCREQUANTITY") {
+        console.log('incre');
+        const resultIncre = state.products.map((e) => {
+            if (e.id === action.paylode) {
+                return {
+                    ...e,
+                    quantity: e.quantity + 1
+                }
+            }
+            return e;
+        })
+        return {
+            ...state,
+            products: resultIncre
+        }
+    }
+    if (action.type === "DECREQUANTITY") {
+        console.log('decre');
+        const resultDecre = state.products.map((e) => {
+            if (e.id === action.paylode) {
+                return {
+                    ...e,
+                    quantity: e.quantity - 1
+                }
+            }
+            return e
+        }).filter((e) => e.quantity > 0)
+        return {
+            ...state,
+            products: resultDecre
+        }
+    }
     return state
 }
 export default CartReducer;

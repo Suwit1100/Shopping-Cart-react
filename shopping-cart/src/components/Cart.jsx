@@ -7,7 +7,6 @@ function Cart() {
     return (
         <div>
             <h3 className='total'>
-                {console.log(products.length)}
                 {products.length > 0 ? `ยอดรวมที่ต้องชำระ : ${formatMoney(total)}` :
                     'ไม่มีสินค้าในตระกร้า'}
             </h3>
